@@ -1,0 +1,47 @@
+
+CREATE DATABASE tem;
+USE tem;
+
+CREATE TABLE admin(
+id INT PRIMARY KEY AUTO_INCREMENT,
+username VARCHAR(50),
+password VARCHAR(50)
+);
+
+CREATE TABLE vendor(
+id INT PRIMARY KEY AUTO_INCREMENT,
+name VARCHAR(100),
+email VARCHAR(100),
+password VARCHAR(50),
+status VARCHAR(20) DEFAULT 'pending'
+);
+
+CREATE TABLE user(
+id INT PRIMARY KEY AUTO_INCREMENT,
+name VARCHAR(100),
+email VARCHAR(100),
+password VARCHAR(50)
+);
+
+CREATE TABLE products(
+id INT PRIMARY KEY AUTO_INCREMENT,
+vendor_id INT,
+name VARCHAR(100),
+price DOUBLE,
+quantity INT,
+status VARCHAR(20) DEFAULT 'pending'
+);
+
+CREATE TABLE cart(
+id INT PRIMARY KEY AUTO_INCREMENT,
+user_id INT,
+product_id INT,
+qty INT
+);
+
+CREATE TABLE orders(
+id INT PRIMARY KEY AUTO_INCREMENT,
+user_id INT,
+total DOUBLE,
+status VARCHAR(20) DEFAULT 'placed'
+);
